@@ -1,0 +1,21 @@
+<!-- dropdown.component.html -->
+<div class="dropdown-container">
+  <div class="dropdown-header" (click)="toggleDropdown()">
+    <span class="selected-text">{{ displayText }}</span>
+    <span class="arrow">{{ isOpen ? "▲" : "▼" }}</span>
+  </div>
+
+  <div class="dropdown-list" *ngIf="isOpen">
+    <div
+      *ngFor="let item of items"
+      class="dropdown-item"
+      [class.selected]="isSelected(item)"
+      (click)="selectItem(item)"
+    >
+      <span *ngIf="multiSelect" class="checkbox">
+        <input type="checkbox" [checked]="isSelected(item)" readonly />
+      </span>
+      {{ item.name }}
+    </div>
+  </div>
+</div>

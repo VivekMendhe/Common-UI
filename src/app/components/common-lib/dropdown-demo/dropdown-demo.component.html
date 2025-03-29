@@ -1,0 +1,42 @@
+<!-- <app-dropdown
+  [items]="[
+    { name: 'Option 1', value: 'Option 1' },
+    { name: 'Option 2', value: 'Option 2' },
+    { name: 'Option 3', value: 'Option 3' }
+  ]"
+  [multiSelect]="multiSelect"
+  placeholder="Select options"
+  (selectionChange)="onSelectionChange($event)"
+>
+</app-dropdown> -->
+
+<app-dropdown
+  [items]="[
+    { name: 'Option 1', value: 'Option 1' },
+    { name: 'Option 2', value: 'Option 2' },
+    { name: 'Option 3', value: 'Option 3' }
+  ]"
+  [multiSelect]="multiSelect"
+  placeholder="{{ multiSelect ? selectedValues.join(', ') || 'Select options' : (selectedValues[0] || 'Select options') }}"
+  (selectionChange)="onSelectionChange($event)">
+</app-dropdown>
+
+
+<div class="selected-values-container">
+  <h3>Selected Values:</h3>
+  <ul>
+    <li *ngFor="let value of selectedValues">{{ value }}</li>
+  </ul>
+</div>
+
+<div class="multi-select-toggle">
+    <h3>Select Mode:</h3>
+  <label>
+    <input type="radio" name="multiSelect" [(ngModel)]="multiSelect" [value]="false" />
+    Single Select
+  </label>
+  <label>
+    <input type="radio" name="multiSelect" [(ngModel)]="multiSelect" [value]="true" />
+    Multi Select
+  </label>
+</div>

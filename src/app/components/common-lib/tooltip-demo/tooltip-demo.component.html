@@ -1,0 +1,34 @@
+<p>tooltip-demo works!</p>
+
+<div>
+  <app-tooltip [tooltipText]="'Confirm to proceed'" [position]="'left'">
+    Save
+  </app-tooltip>
+</div>
+<!-- Top position -->
+<div>
+  <app-tooltip [tooltipText]="'Confirm to proceed'" position="top">
+    Save (Top)
+  </app-tooltip>
+</div>
+
+<!-- Bottom position (default) -->
+<div>
+  <app-tooltip [tooltipText]="'Confirm to proceed'">
+    Save (Bottom)
+  </app-tooltip>
+</div>
+
+<!-- Left position -->
+<div>
+  <app-tooltip [tooltipText]="'Confirm to proceed'" position="left">
+    Save (Left)
+  </app-tooltip>
+</div>
+
+<!-- Right position -->
+<div>
+  <app-tooltip [tooltipText]="'Confirm to proceed'" position="right">
+    Save (Right)
+  </app-tooltip>
+</div>
