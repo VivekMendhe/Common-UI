@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { DropdownComponent } from "../../../libs/common-lib/dropdown/dropdown.component";
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { TooltipComponent } from "../../../libs/common-lib/tooltip/tooltip.component";
 
 @Component({
   selector: 'app-dropdown-demo',
-  imports: [DropdownComponent, CommonModule, FormsModule],
+  imports: [DropdownComponent, CommonModule, FormsModule, TooltipComponent],
   templateUrl: './dropdown-demo.component.html',
   styleUrl: './dropdown-demo.component.scss'
 })

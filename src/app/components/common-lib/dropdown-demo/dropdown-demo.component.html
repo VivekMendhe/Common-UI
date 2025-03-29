@@ -9,18 +9,31 @@
   (selectionChange)="onSelectionChange($event)"
 >
 </app-dropdown> -->
-
-<app-dropdown
-  [items]="[
-    { name: 'Option 1', value: 'Option 1' },
-    { name: 'Option 2', value: 'Option 2' },
-    { name: 'Option 3', value: 'Option 3' }
-  ]"
-  [multiSelect]="multiSelect"
-  placeholder="{{ multiSelect ? selectedValues.join(', ') || 'Select options' : (selectedValues[0] || 'Select options') }}"
-  (selectionChange)="onSelectionChange($event)">
-</app-dropdown>
-
+<app-tooltip
+  [tooltipText]="selectedValues.length ? selectedValues.join(', ') : 'Select options'"
+  [position]="'bottom'"
+>
+  <app-dropdown
+    [items]="[
+      { name: 'Option 1', value: 'Option 1' },
+      { name: 'Option 2', value: 'Option 2' },
+      { name: 'Option 3', value: 'Option 3' },
+      { name: 'Option 4', value: 'Option 4' },
+      { name: 'Option 5', value: 'Option 5' },
+      { name: 'Option 6', value: 'Option 6' },
+      { name: 'Option 7', value: 'Option 7' },
+      { name: 'Option 8', value: 'Option 8' },
+    ]"
+    [multiSelect]="multiSelect"
+    placeholder="{{
+      multiSelect
+        ? selectedValues.join(', ') || 'Select options'
+        : selectedValues[0] || 'Select options'
+    }}"
+    (selectionChange)="onSelectionChange($event)"
+  >
+  </app-dropdown>
+</app-tooltip>
 
 <div class="selected-values-container">
   <h3>Selected Values:</h3>
@@ -30,13 +43,23 @@
 </div>
 
 <div class="multi-select-toggle">
-    <h3>Select Mode:</h3>
+  <h3>Select Mode:</h3>
   <label>
-    <input type="radio" name="multiSelect" [(ngModel)]="multiSelect" [value]="false" />
+    <input
+      type="radio"
+      name="multiSelect"
+      [(ngModel)]="multiSelect"
+      [value]="false"
+    />
     Single Select
   </label>
   <label>
-    <input type="radio" name="multiSelect" [(ngModel)]="multiSelect" [value]="true" />
+    <input
+      type="radio"
+      name="multiSelect"
+      [(ngModel)]="multiSelect"
+      [value]="true"
+    />
     Multi Select
   </label>
 </div>
